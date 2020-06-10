@@ -17,11 +17,12 @@ router.post('/', [
   
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
+    throw new Error("Invalid Email or Password!");
+    // return res.status(422).json({ errors: errors.array() });
   }
 
-  res.send({"email": req.body.email, "password": req.body.password})
-
+  // res.send({"email": req.body.email, "password": req.body.password})
+  throw new Error("Database connection failed!")
 });
 
 export { router as signUpRouter}
