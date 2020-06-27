@@ -14,6 +14,7 @@ interface UserDoc extends mongoose.Document {
   password: string;
 }
 
+// structure of the object
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -24,6 +25,7 @@ const userSchema = new mongoose.Schema({
     required: true
   }
 });
+// making the model
 userSchema.statics.build = (attrs: UserAttrs) => new User(attrs);
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
